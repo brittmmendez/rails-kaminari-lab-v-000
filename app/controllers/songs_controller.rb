@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.all
+    @songs = Song.oder(created_at: :desc).pages(params[:page])
   end
 
   def show
